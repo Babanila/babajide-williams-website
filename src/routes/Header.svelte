@@ -1,19 +1,13 @@
 <script>
 	import { page } from '$app/stores';
-	import github from '$lib/images/github.svg';
 </script>
 
 <header>
-	<div class="corner-name">
-		<a href="https://github.com/babanila">
-			Babajide.
-		</a>
+	<div class="logo-name">
+		<a href="https://github.com/babanila"> Babajide. </a>
 	</div>
 
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
@@ -34,78 +28,50 @@
 				<a href="#portfolio">Feedback</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('#contact') ? 'page' : undefined}>
-				<a href="#contact">Contact</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('#me') ? 'page' : undefined}>
-				<a href="#me">Me</a>
+				<a href="#contact-me">Contact Me</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/Babanila/babajide-williams-website">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
 
 <style>
 	header {
 		display: flex;
 		justify-content: space-between;
+		padding: 16px 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 5;
+		border-bottom: 1px solid #e3e3e3;
+		background: #f1faee;
+		font-size: 16px;
 	}
 
-	.corner-name {
+	.logo-name {
 		width: auto;
-		height: 3em;
-		padding-top: 0.5em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		padding-left: 1em;
 		font-size: xx-large;
+		font-weight: 700;
 	}
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+	.logo-name a {
+		color: var(--color-text);
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: #f1faee;
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
+		padding-right: 1em;
 	}
 
 	ul {
 		position: relative;
-		padding: 0;
 		margin: 0;
-		height: 3em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -117,18 +83,6 @@
 	li {
 		position: relative;
 		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
 	}
 
 	nav a {
