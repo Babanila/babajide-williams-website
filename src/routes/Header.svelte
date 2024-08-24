@@ -1,13 +1,12 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+	<div class="corner-name">
+		<a href="https://github.com/babanila">
+			Babajide.
 		</a>
 	</div>
 
@@ -19,11 +18,26 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
+			<li aria-current={$page.url.pathname.startsWith('#skills') ? 'page' : undefined}>
+				<a href="#skills">Skills</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
+			<li aria-current={$page.url.pathname.startsWith('#experience') ? 'page' : undefined}>
+				<a href="#experience">Experience</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('#education') ? 'page' : undefined}>
+				<a href="#education">Education</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('#portfolio') ? 'page' : undefined}>
+				<a href="#portfolio">Portfolio</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('#portfolio') ? 'page' : undefined}>
+				<a href="#portfolio">Feedback</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('#contact') ? 'page' : undefined}>
+				<a href="#contact">Contact</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('#me') ? 'page' : undefined}>
+				<a href="#me">Me</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -32,7 +46,7 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
+		<a href="https://github.com/Babanila/babajide-williams-website">
 			<img src={github} alt="GitHub" />
 		</a>
 	</div>
@@ -42,6 +56,14 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.corner-name {
+		width: auto;
+		height: 3em;
+		padding-top: 0.5em;
+		padding-left: 1em;
+		font-size: xx-large;
 	}
 
 	.corner {
@@ -66,7 +88,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: #f1faee;
 	}
 
 	svg {
