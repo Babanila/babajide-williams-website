@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	const items = ['Skills', 'Experience', 'Education', 'Portfolio', 'Feedback', 'Contact'];
 </script>
 
 <header>
@@ -12,24 +13,11 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('#skills') ? 'page' : undefined}>
-				<a href="#skills">Skills</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('#experience') ? 'page' : undefined}>
-				<a href="#experience">Experience</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('#education') ? 'page' : undefined}>
-				<a href="#education">Education</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('#portfolio') ? 'page' : undefined}>
-				<a href="#portfolio">Portfolio</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('#portfolio') ? 'page' : undefined}>
-				<a href="#portfolio">Feedback</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('#contact') ? 'page' : undefined}>
-				<a href="#contact-me">Contact Me</a>
-			</li>
+			{#each items as item}
+				<li aria-current={$page.url.pathname.startsWith('#{item}') ? 'page' : undefined}>
+					<a href="#{item}">{item}</a>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 </header>
@@ -45,7 +33,7 @@
 		width: 100%;
 		z-index: 5;
 		border-bottom: 1px solid #e3e3e3;
-		background: #f1faee;
+		background: #ffffff;
 		font-size: 16px;
 	}
 
