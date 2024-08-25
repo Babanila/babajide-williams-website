@@ -36,7 +36,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background-color: #f1faee;
+		background-color: #f1eded;
 	}
 
 	@media (min-width: 480px) {
