@@ -11,7 +11,7 @@
 
 	let showModal = false;
 
-	const resume: Record<string, any> = {
+	const home: Record<string, any> = {
 		firstname: 'Babajide',
 		surname: 'Williams',
 		introMessage:
@@ -34,6 +34,32 @@
 		{ name: 'facebook', icon: facebook },
 		{ name: 'instagram', icon: instagram }
 	];
+
+	const skills = {
+		title: 'Skills',
+		intro:
+			'I’m driven by the thrill of collaborating with passionate individuals to bring extraordinary software to life. Creating something exceptional together fuels my creativity and pushes the boundaries of what’s possible.',
+		types: [
+			{
+				name: 'Web Development',
+				details: 'Javascript, Coffeescript, Python, Node.js, Nest.js MongoDB, PostgreSQL, WebStorm.'
+			},
+			{
+				name: 'Frontend Development',
+				details:
+					'HTML, CSS, LESS, SASS, SCSS, Tailwind, Bootstrap, React, Next.js, Gatsby, Hugo.js, Foundation, Angular.js.'
+			},
+			{
+				name: 'UI/UX Design',
+				details:
+					'Figma, Photoshop, Sketch, Prototyping, Wireframing, User Research, Usability Testing.'
+			},
+			{
+				name: 'Testing & CI/CD',
+				details: 'Storybook, Cypress, Jest, Docker, GitHub-Actions, CircleCI, Jenkins.'
+			}
+		]
+	};
 </script>
 
 <svelte:head>
@@ -41,34 +67,34 @@
 	<meta name="description" content="Babajide CV" />
 </svelte:head>
 
-<section id="home" class="section-part">
+<section id="Home" class="section-part">
 	<div class="two-column">
 		<div class="column left">
 			<slot name="left">
 				<div class="column-wrapper">
-					<h1><span class="point">I am {resume.firstname} {resume.surname}</span></h1>
+					<h1><span class="point">I am {home.firstname} {home.surname}</span></h1>
 					<div class="opacity-box">
-						<p>{resume.introMessage}</p>
+						<p>{home.introMessage}</p>
 					</div>
 
 					<div class="my-info">
 						<p>
 							<span class="span-title">Phone</span>
-							<span>{resume.phoneNumber}</span>
+							<span>{home.phoneNumber}</span>
 						</p>
 						<p>
 							<span class="span-title">Email</span>
-							<span>{resume.email}</span>
+							<span>{home.email}</span>
 						</p>
 						<p>
 							<span class="span-title">Address</span>
-							<span>{resume.address}</span>
+							<span>{home.address}</span>
 						</p>
 						<p>
 							<span class="span-title">Social</span>
 							{#each socialConnections as sc}
 								<span class="span-icons">
-									<a target="_blank" href={resume[sc.name]} class="icons-wrapper">
+									<a target="_blank" href={home[sc.name]} class="icons-wrapper">
 										<img src={sc.icon} alt={sc.name} class="icon-svg" />
 									</a>
 								</span>
@@ -76,7 +102,7 @@
 						</p>
 					</div>
 
-					<div class="about-btns">
+					<div class="home-btns">
 						<Button class="primary sm" on:click={() => (showModal = true)}>Contact me</Button>
 
 						<a download="Babajide_Wiliams_CV.pdf" target="_blank" href={cv}>
@@ -102,84 +128,191 @@
 	</Modal>
 </section>
 
-<section>
-	<div class="corner">
-		<a href="https://github.com/Babanila/babajide-williams-website">
-			<img src={github} alt="GitHub" />
-		</a>
+<section id="Skills" class="skills-container">
+	<h2 class="skills-title">{skills.title}<span>.</span></h2>
+	<p class="skills-description">{skills.intro}</p>
+
+	<div class="skills-grid">
+		{#each skills.types as { name, details }}
+			<div class="skill-section">
+				<h3>{name}</h3>
+				<p>{details}</p>
+			</div>
+		{/each}
 	</div>
 </section>
 
 <style>
 	.section-part {
-		width: 100%;
-		display: flex;
-		flex: 1;
-		border-bottom: 1px solid #e3e3e3;
-		margin-top: 80px;
-		padding: 32px 0;
+		padding: 20px;
+		max-width: 1200px;
+		margin: 0 auto;
+		margin-top: 30px;
+		/* border-bottom: 1px solid #e3e3e3; */
 	}
 
 	.two-column {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
+		gap: 20px;
+		color: #666666;
+	}
+
+	.column {
+		flex: 1;
+		padding: 10px;
+	}
+
+	.column.left {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.column.right {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.column-wrapper {
-		padding: 10px;
-		gap: 16px;
+		width: 100%;
 	}
 
-	.left {
-		width: auto;
-		max-width: 50%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		order: 1;
-		font-size: 16px;
-		font-family: Roboto, sans-serif;
-		animation-name: slideInLeft;
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.point {
+		color: #333333;
 	}
 
 	.opacity-box {
-		margin-bottom: 16px;
+		margin-bottom: 2rem;
+		opacity: 0.9;
 	}
 
-	.right {
-		width: auto;
-		max-width: 50%;
+	.my-info p {
+		margin: 0.5rem 0;
 		display: flex;
-		justify-content: center;
 		align-items: center;
-		order: 2;
-	}
-
-	.img-responsive {
-		box-sizing: border-box;
-		position: relative;
-		min-height: 1px;
-		width: 100%;
-		float: right;
+		gap: 32px;
 	}
 
 	.span-title {
-		margin-right: 16px;
-		text-transform: uppercase;
+		font-weight: bold;
+		margin-right: 10px;
 	}
 
 	.span-icons {
-		margin-right: 16px;
+		margin-top: 10px;
 	}
 
-	section {
-		width: 100%;
+	.icon-svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	.home-btns {
+		display: flex;
+		gap: 10px;
+		margin-top: 20px;
+	}
+
+	.img-responsive {
+		max-width: 100%;
+		height: auto;
+		border-radius: 50%;
+		border: 2px solid #ddd;
+	}
+
+	.skills-container {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
-		flex: 0.6;
-		border-bottom: 1px solid #e3e3e3;
+		padding: 20px;
+		text-align: center;
+		background-color: azure;
+	}
+
+	.skills-title {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+		color: #333;
+	}
+
+	.skills-title span {
+		color: #1d3557;
+	}
+
+	.skills-description {
+		font-size: 1.25rem;
+		margin-bottom: 2rem;
+		color: #666;
+		max-width: 600px;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		width: 100%;
+		max-width: 1200px;
+	}
+
+	.skill-section {
+		padding: 15px;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		background-color: #f9f9f9;
+	}
+
+	.skill-section h3 {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+		color: #333;
+	}
+
+	.skill-section p {
+		font-size: 1rem;
+		color: #666;
+		line-height: 1.5;
+	}
+
+	/* Medium screens (tablets) */
+	@media (min-width: 768px) {
+		.two-column {
+			flex-direction: row;
+			gap: 40px;
+		}
+
+		h1 {
+			font-size: 3rem;
+		}
+
+		.column.right {
+			justify-content: flex-end;
+		}
+		.skills-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	/* Large screens (desktops) */
+	@media (min-width: 1024px) {
+		.two-column {
+			gap: 60px;
+		}
+
+		.img-responsive {
+			width: 300px;
+			height: 300px;
+		}
+		.skills-grid {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
 	}
 
 	h1 {
