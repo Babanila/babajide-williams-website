@@ -1,12 +1,14 @@
-<script>
+<script lang="ts">
 	import Button from './Button.svelte';
 
 	let status = '';
 	const handleSubmit = async (
-		/** @type {{ currentTarget: HTMLFormElement | undefined; }} */ data
+		/** @type {{ currentTarget: HTMLFormElement | undefined; }} */ data:
+			| { currentTarget: HTMLFormElement | undefined }
+			| undefined
 	) => {
 		status = 'Submitting...';
-		const formData = new FormData(data.currentTarget);
+		const formData = new FormData(data?.currentTarget);
 		const object = Object.fromEntries(formData);
 		const json = JSON.stringify(object);
 
@@ -26,8 +28,6 @@
 	};
 </script>
 
-<div>{status}</div>
-
 <section class="contact-body">
 	<div class="contact-title">
 		<h1><span class="point">Contact Form</span></h1>
@@ -45,7 +45,10 @@
 				<input type="email" name="email" placeholder="Email" required />
 				<textarea name="message" placeholder="Message" required rows="3"></textarea>
 				<div class="button-group">
-					<Button class="primary sm" type="submit" on:click={() => handleSubmit()}>Submit</Button>
+					<Button class="primary sm" on:click={() => handleSubmit}>Submit</Button>
+				</div>
+				<div class="info-group">
+					<div>{status}</div>
 				</div>
 			</div>
 		</form>
@@ -81,8 +84,10 @@
 		border-radius: 2px;
 	}
 
+	.info-group,
 	.button-group {
 		display: flex;
 		justify-content: center;
+		gap: 16px;
 	}
 </style>
