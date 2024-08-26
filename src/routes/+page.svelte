@@ -18,16 +18,15 @@
 			'I’m a solution-driven software engineer with over 10 years of experience in the IT world, providing a permanent solution to day-to-day challenges that gives the company a competitive edge and producing outstanding results for clients. My experience spans multiple aspects of the design and development process, with a primary focus on creating intuitive, accessible, and user-centered products. I’ve worked closely with designers to translate wireframes and prototypes into interactive, responsive interfaces, ensuring a smooth and engaging user journey across various devices. I concentrate on optimizing user flow and minimizing friction by simplifying navigation, enhancing load times, and ensuring consistent visual and interactive elements',
 		email: 'babanila@yahoo.com',
 		address: 'Berlin, Germany',
-		phoneNumber: '+49 176 301 720 22',
+		phone: '+49 176 301 720 22',
 		skype: 'al.babanila',
 		facebook: 'https://www.facebook.com/Babanila/',
 		github: 'https://github.com/babanila',
 		linkedln: 'https://www.linkedin.com/in/babanila/',
 		instagram: 'https://www.instagram.com/babanila/',
-		thread: 'https://www.threads.net/@babanila',
-		education: '',
-		f: ''
+		thread: 'https://www.threads.net/@babanila'
 	};
+	const infos = ['phone', 'email', 'address'];
 	const socialConnections = [
 		{ name: 'github', icon: github },
 		{ name: 'linkedln', icon: linkedln },
@@ -42,7 +41,8 @@
 		types: [
 			{
 				name: 'Web Development',
-				details: 'Javascript, Coffeescript, Python, Node.js, Nest.js MongoDB, PostgreSQL, WebStorm.'
+				details:
+					'Javascript, Coffeescript, Python, Node.js, Nest.js, SQL, MongoDB, PostgreSQL, WebStorm.'
 			},
 			{
 				name: 'Frontend Development',
@@ -60,6 +60,44 @@
 			}
 		]
 	};
+
+	const experiences = [
+		{
+			title: 'Senior Frontend Developer',
+			company: 'HealthHero GmbH',
+			date: 'Sept, 2021 — Present',
+			description:
+				'Creating advanced software solutions and web applications using React, TypeScript, JavaScript, Node.js, HTML, CSS3, Cypress, Jest, and Storybook, including developing a UI components library. By enhancing user accessibility on websites, I significantly improved the user experience. My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%. Additionally, I developed the Long-Covid-App and the Questionnaire Rule Engine tool.'
+		},
+		{
+			title: 'Frontend Developer',
+			company: 'EGEOS GmbH (North.io GmbH)',
+			date: 'Oct, 2020 — Sept, 2021',
+			description:
+				'Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, JavaScript, Nodejs, HTML and CSS3. The optimization of websites resulted in a 300% increase in speed.'
+		},
+		{
+			title: 'Software Engineer',
+			company: 'Daizu GmbH',
+			date: 'June, 2019 — June, 2020',
+			description:
+				'Developed questionnaire app, e-commerce, CRM and blog-post website using using technologies such as React, Gatsby, GraphQL, CMS(Sanity), JavaScript,HTML, style-components and pure CSS. Refactored codebase to achieve a 30% reduction in bundle size.'
+		},
+		{
+			title: 'Software Engineer',
+			company: 'Commercetools GmbH',
+			date: 'June, 2018 — June, 2019',
+			description:
+				'Developed innovative API solutions using Node.js, CoffeeScript, REST, and GraphQL to create various modules that support modern microservice-based architecture for clients, such as Category Export and Resource Deleter. Additionally, I built full websites and individual web pages for various clients and wrote unit, integration and end-to-end tests for APIs to ensure functionality and reliability.'
+		},
+		{
+			title: 'Software Developer',
+			company: 'Bliss Energy Nig. Ltd.',
+			date: 'May, 2015 — May, 2018',
+			description:
+				"I developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS. I played a key role in setting up the network that enhanced the company's development and growth. Additionally, I initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them."
+		}
+	];
 </script>
 
 <svelte:head>
@@ -67,7 +105,7 @@
 	<meta name="description" content="Babajide CV" />
 </svelte:head>
 
-<section id="Home" class="section-part">
+<section id="Home" class="home-part">
 	<div class="two-column">
 		<div class="column left">
 			<slot name="left">
@@ -78,18 +116,12 @@
 					</div>
 
 					<div class="my-info">
-						<p>
-							<span class="span-title">Phone</span>
-							<span>{home.phoneNumber}</span>
-						</p>
-						<p>
-							<span class="span-title">Email</span>
-							<span>{home.email}</span>
-						</p>
-						<p>
-							<span class="span-title">Address</span>
-							<span>{home.address}</span>
-						</p>
+						{#each infos as info}
+							<p>
+								<span class="span-title">{info}</span>
+								<span>{home[`${info}`]}</span>
+							</p>
+						{/each}
 						<p>
 							<span class="span-title">Social</span>
 							{#each socialConnections as sc}
@@ -142,8 +174,34 @@
 	</div>
 </section>
 
+<section id="Experience" class="experience-section">
+	<div class="content-wrapper">
+		<div class="left-column">
+			<h1><span class="point">Experience.</span></h1>
+			<p>
+				I collaborate with startups, established organizations, and companies across the health,
+				e-commerce, retail, and SaaS sectors to develop digital solutions that empower clients to
+				tackle challenges and foster meaningful connections with millions of users daily.
+			</p>
+		</div>
+		<div class="right-column">
+			{#each experiences as experience}
+				<div class="experience-item">
+					<h2>{experience.title} <span class="company">{experience.company}</span></h2>
+					<p class="date">{experience.date}</p>
+					<p class="description">{experience.description}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- <section id="Contact">
+	<ContactForm />
+</section> -->
+
 <style>
-	.section-part {
+	.home-part {
 		padding: 20px;
 		max-width: 1200px;
 		margin: 0 auto;
@@ -202,6 +260,7 @@
 
 	.span-title {
 		font-weight: bold;
+		text-transform: capitalize;
 		margin-right: 10px;
 	}
 
@@ -217,7 +276,7 @@
 	.home-btns {
 		display: flex;
 		gap: 10px;
-		margin-top: 20px;
+		margin-top: 40px;
 	}
 
 	.img-responsive {
@@ -232,8 +291,9 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 20px;
+		padding-bottom: 40px;
 		text-align: center;
-		background-color: azure;
+		/* background-color: azure; */
 	}
 
 	.skills-title {
@@ -281,6 +341,50 @@
 		line-height: 1.5;
 	}
 
+	.experience-section {
+		padding: 20px;
+		max-width: 1200px;
+		margin: 0 auto;
+		color: #666666;
+	}
+
+	.content-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.left-column {
+		flex: 1;
+	}
+
+	.right-column {
+		flex: 2;
+	}
+
+	.experience-item {
+		margin-bottom: 20px;
+		border-bottom: 1px solid #e3e3e3;
+	}
+
+	h2 {
+		color: #333333;
+	}
+	.company {
+		color: #666666;
+		font-weight: normal;
+		font-style: italic;
+	}
+
+	.date {
+		color: #666666;
+		font-size: 0.9rem;
+	}
+
+	.description {
+		margin-top: 5px;
+	}
+
 	/* Medium screens (tablets) */
 	@media (min-width: 768px) {
 		.two-column {
@@ -298,6 +402,11 @@
 		.skills-grid {
 			grid-template-columns: 1fr 1fr;
 		}
+
+		.content-wrapper {
+			flex-direction: row;
+			gap: 40px;
+		}
 	}
 
 	/* Large screens (desktops) */
@@ -310,12 +419,13 @@
 			width: 300px;
 			height: 300px;
 		}
+
 		.skills-grid {
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 		}
-	}
 
-	h1 {
-		width: 100%;
+		.content-wrapper {
+			gap: 60px;
+		}
 	}
 </style>
