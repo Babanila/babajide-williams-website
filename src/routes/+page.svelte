@@ -98,6 +98,21 @@
 				"I developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS. I played a key role in setting up the network that enhanced the company's development and growth. Additionally, I initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them."
 		}
 	];
+
+	const educationDetails = [
+		{
+			title: 'Master',
+			institution: 'University of Applied Science Kiel',
+			date: 'Oct, 2016 — Nov, 2020',
+			description: 'MSc (Hons) in Information Engineering.'
+		},
+		{
+			title: 'Bachelor',
+			institution: 'Federal University of Technology Akure',
+			date: 'Oct, 2005 — Nov, 2010',
+			description: 'BTech (Hons) in Computer Science.'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -161,7 +176,7 @@
 </section>
 
 <section id="Skills" class="skills-container">
-	<h2 class="skills-title">{skills.title}<span>.</span></h2>
+	<h2 class="section-title">{skills.title}</h2>
 	<p class="skills-description">{skills.intro}</p>
 
 	<div class="skills-grid">
@@ -177,7 +192,7 @@
 <section id="Experience" class="experience-section">
 	<div class="content-wrapper">
 		<div class="left-column">
-			<h1><span class="point">Experience.</span></h1>
+			<h2 class="section-title">Experience</h2>
 			<p>
 				I collaborate with startups, established organizations, and companies across the health,
 				e-commerce, retail, and SaaS sectors to develop digital solutions that empower clients to
@@ -190,6 +205,28 @@
 					<h2>{experience.title} <span class="company">{experience.company}</span></h2>
 					<p class="date">{experience.date}</p>
 					<p class="description">{experience.description}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section id="Education" class="education-section">
+	<div class="content-wrapper">
+		<div class="left-column">
+			<h2 class="section-title">Education</h2>
+			<p>
+				All my life I have been driven by my strong belief that education is important. I try to
+				learn something new every single day.
+			</p>
+		</div>
+		<div class="right-column">
+			{#each educationDetails as edu (edu.title)}
+				<div class="experience-item">
+					<h2>{edu.title}</h2>
+					<p class="education-institution">{edu.institution}</p>
+					<p class="description">{edu.description}</p>
+					<p class="date">{edu.date}</p>
 				</div>
 			{/each}
 		</div>
@@ -213,7 +250,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
-		color: #666666;
 	}
 
 	.column {
@@ -240,10 +276,6 @@
 	h1 {
 		font-size: 2.5rem;
 		margin-bottom: 1rem;
-	}
-
-	.point {
-		color: #333333;
 	}
 
 	.opacity-box {
@@ -286,6 +318,12 @@
 		border: 2px solid #ddd;
 	}
 
+	.section-title {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+	}
+
 	.skills-container {
 		display: flex;
 		flex-direction: column;
@@ -296,21 +334,9 @@
 		/* background-color: azure; */
 	}
 
-	.skills-title {
-		font-size: 2rem;
-		font-weight: bold;
-		margin-bottom: 0.5rem;
-		color: #333;
-	}
-
-	.skills-title span {
-		color: #1d3557;
-	}
-
 	.skills-description {
 		font-size: 1.25rem;
 		margin-bottom: 2rem;
-		color: #666;
 		max-width: 600px;
 	}
 
@@ -332,20 +358,18 @@
 	.skill-section h3 {
 		font-size: 1.25rem;
 		margin-bottom: 0.75rem;
-		color: #333;
 	}
 
 	.skill-section p {
 		font-size: 1rem;
-		color: #666;
 		line-height: 1.5;
 	}
 
+	.education-section,
 	.experience-section {
 		padding: 20px;
 		max-width: 1200px;
 		margin: 0 auto;
-		color: #666666;
 	}
 
 	.content-wrapper {
@@ -367,9 +391,6 @@
 		border-bottom: 1px solid #e3e3e3;
 	}
 
-	h2 {
-		color: #333333;
-	}
 	.company {
 		color: #666666;
 		font-weight: normal;
