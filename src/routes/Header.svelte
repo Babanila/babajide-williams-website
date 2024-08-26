@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	const items = ['Skills', 'Experience', 'Education', 'Portfolio', 'Feedback', 'Contact'];
+	const items = ['Skills', 'Experience', 'Education', 'Portfolio', 'Contact'];
 </script>
 
 <header>

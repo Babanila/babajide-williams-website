@@ -1,13 +1,13 @@
 <script lang="ts">
-	import profile_image from '$lib/images/profile-image.jpeg';
-	import facebook from '$lib/images/facebook.svg';
-	import linkedln from '$lib/images/linkedin.svg';
-	import instagram from '$lib/images/instagram.svg';
-	import github from '$lib/images/github.svg';
 	import cv from '$lib/pdf/Babajide_Williams_CV.pdf';
+	import facebook from '$lib/images/facebook.svg';
+	import github from '$lib/images/github.svg';
+	import instagram from '$lib/images/instagram.svg';
+	import linkedln from '$lib/images/linkedin.svg';
+	import profile_image from '$lib/images/profile-image.jpeg';
 	import Button from './Button.svelte';
-	import Modal from './Modal.svelte';
 	import ContactForm from './ContactForm.svelte';
+	import Modal from './Modal.svelte';
 
 	let showModal = false;
 
@@ -26,7 +26,9 @@
 		instagram: 'https://www.instagram.com/babanila/',
 		thread: 'https://www.threads.net/@babanila'
 	};
+
 	const infos = ['phone', 'email', 'address'];
+
 	const socialConnections = [
 		{ name: 'github', icon: github },
 		{ name: 'linkedln', icon: linkedln },
@@ -96,6 +98,20 @@
 			date: 'May, 2015 — May, 2018',
 			description:
 				"I developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS. I played a key role in setting up the network that enhanced the company's development and growth. Additionally, I initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them."
+		},
+		{
+			title: 'System Administrator',
+			company: 'Emirates Flight Catering',
+			date: 'May, 2012 — May, 2015',
+			description:
+				'I was responsible for setting up and maintaining Windows Server 2012, managing and configuring routers and switches during network setup, and overseeing user account management. Additionally, I handled the installation, updating, and maintenance of software on office equipment, including computer systems, routers, and switches.'
+		},
+		{
+			title: 'Network Administrator',
+			company: 'Yemshba Telephone Network',
+			date: 'March, 2010 — Sept, 2012',
+			description:
+				'I was responsible for setting up and maintaining Windows Server 2008, managing user accounts, and overseeing the installation, updating, and maintenance of software on company systems. Additionally, I handled the installation and upkeep of office equipment, including computer systems, routers, and switches.'
 		}
 	];
 
@@ -113,6 +129,12 @@
 			description: 'BTech (Hons) in Computer Science.'
 		}
 	];
+
+	const contactDetails = {
+		title: 'Contact',
+		intro:
+			'Are you in need of a frontend development expert or working on something exciting? I’d love to help bring it to life! Feel free to drop me a message.'
+	};
 </script>
 
 <svelte:head>
@@ -171,7 +193,12 @@
 	</div>
 
 	<Modal bind:showModal>
-		<ContactForm />
+		<ContactForm
+			title="Contact Form"
+			description="Are you in need of a frontend development expert or working on something exciting? I’d love
+				to help bring it to life! Feel free to drop me a message."
+			submitWord="Submit"
+		/>
 	</Modal>
 </section>
 
@@ -202,7 +229,9 @@
 		<div class="right-column">
 			{#each experiences as experience}
 				<div class="experience-item">
-					<h2>{experience.title} <span class="company">{experience.company}</span></h2>
+					<h2 class="section-inner-title">
+						{experience.title} <span class="company">{experience.company}</span>
+					</h2>
 					<p class="date">{experience.date}</p>
 					<p class="description">{experience.description}</p>
 				</div>
@@ -223,7 +252,7 @@
 		<div class="right-column">
 			{#each educationDetails as edu (edu.title)}
 				<div class="experience-item">
-					<h2>{edu.title}</h2>
+					<h2 class="section-inner-title">{edu.title}</h2>
 					<p class="education-institution">{edu.institution}</p>
 					<p class="description">{edu.description}</p>
 					<p class="date">{edu.date}</p>
@@ -233,9 +262,19 @@
 	</div>
 </section>
 
-<!-- <section id="Contact">
-	<ContactForm />
-</section> -->
+<section id="Contact" class="contact-section">
+	<div class="content-wrapper">
+		<div class="left-column">
+			<h2 class="section-title">{contactDetails.title}</h2>
+			<p>
+				{contactDetails.intro}
+			</p>
+		</div>
+		<div class="right-column">
+			<ContactForm />
+		</div>
+	</div>
+</section>
 
 <style>
 	.home-part {
@@ -274,17 +313,17 @@
 	}
 
 	h1 {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
+		font-size: 40px;
+		margin-bottom: 16px;
 	}
 
 	.opacity-box {
-		margin-bottom: 2rem;
+		margin-bottom: 32px;
 		opacity: 0.9;
 	}
 
 	.my-info p {
-		margin: 0.5rem 0;
+		margin: 8px 0;
 		display: flex;
 		align-items: center;
 		gap: 32px;
@@ -319,31 +358,29 @@
 	}
 
 	.section-title {
-		font-size: 2rem;
+		font-size: 32px;
 		font-weight: bold;
-		margin-bottom: 0.5rem;
+		margin-bottom: 8px;
 	}
 
 	.skills-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 20px;
-		padding-bottom: 40px;
+		padding: 40px 20px;
 		text-align: center;
-		/* background-color: azure; */
 	}
 
 	.skills-description {
-		font-size: 1.25rem;
-		margin-bottom: 2rem;
+		font-size: 20px;
+		margin-bottom: 32px;
 		max-width: 600px;
 	}
 
 	.skills-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 1.5rem;
+		gap: 24px;
 		width: 100%;
 		max-width: 1200px;
 	}
@@ -356,20 +393,25 @@
 	}
 
 	.skill-section h3 {
-		font-size: 1.25rem;
-		margin-bottom: 0.75rem;
+		font-size: 20px;
+		margin-bottom: 12px;
 	}
 
 	.skill-section p {
-		font-size: 1rem;
+		font-size: 16px;
 		line-height: 1.5;
 	}
 
+	.contact-section,
 	.education-section,
 	.experience-section {
-		padding: 20px;
+		padding: 40px 20px;
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+
+	.section-inner-title {
+		font-weight: bold;
 	}
 
 	.content-wrapper {
@@ -399,7 +441,7 @@
 
 	.date {
 		color: #666666;
-		font-size: 0.9rem;
+		font-size: 16px;
 	}
 
 	.description {
@@ -414,7 +456,7 @@
 		}
 
 		h1 {
-			font-size: 3rem;
+			font-size: 48px;
 		}
 
 		.column.right {
