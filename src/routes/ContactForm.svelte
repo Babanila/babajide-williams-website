@@ -2,6 +2,10 @@
 	import Button from './Button.svelte';
 
 	let status = '';
+	export let title: string = '';
+	export let description: string = '';
+	export let submitWord: string = '';
+
 	const handleSubmit = async (
 		/** @type {{ currentTarget: HTMLFormElement | undefined; }} */ data:
 			| { currentTarget: HTMLFormElement | undefined }
@@ -30,52 +34,89 @@
 
 <div>{status}</div>
 
-<section class="contact-body">
-	<div class="contact-title">
-		<h1><span class="point">Contact Form</span></h1>
+<section class="contact-form">
+	<div class="part-one">
+		{#if title}
+			<div class="contact-title"><h1>{title}</h1></div>
+		{/if}
+		{#if description}
+			<div class="contact-description">{description}</div>
+		{/if}
 	</div>
-	<div class="contact-description">
-		<p>
-			Are you in need of a frontend development expert or working on something exciting? I’d love to
-			help bring it to life! Feel free to drop me a message.
-		</p>
 
+	<div class="part-two">
 		<form on:submit|preventDefault={handleSubmit}>
 			<input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY111} />
 			<div class="input-wrapper">
-				<input type="text" name="name" placeholder="Name" required />
-				<input type="email" name="email" placeholder="Email" required />
-				<textarea name="message" placeholder="Message" required rows="3"></textarea>
-				<div class="button-group">
-					<Button class="primary sm" on:click={() => handleSubmit}>Submit</Button>
+				<div class="input-first">
+					<input type="text" name="name" placeholder="Name" required />
+					<input type="email" name="email" placeholder="Email" required />
 				</div>
+				<textarea name="message" placeholder="Message" required rows="3"></textarea>
 			</div>
 		</form>
+		<div class="button-group">
+			<Button class="primary sm" on:click={() => handleSubmit}>
+				{#if submitWord}
+					{submitWord}
+				{:else}
+					Send Message
+				{/if}
+			</Button>
+		</div>
 	</div>
 </section>
 
 <style>
-	.contact-body {
-		width: auto;
-		min-width: 400px;
-		padding: 20px;
+	form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.input-wrapper {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		gap: 32px;
+	}
+
+	.input-first {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 32px;
+	}
+
+	.button-group {
+		display: flex;
+		justify-content: center;
+		margin-top: 16px;
+	}
+
+	.contact-title {
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 16px;
+	}
+
+	.contact-description {
+		font-size: 16px;
+		margin-bottom: 32px;
+		text-align: center;
 	}
 
 	input {
 		height: 50px;
+		width: 300px;
 		border: 1px solid #e3e3e3;
 		border-radius: 2px;
 		padding: 0 20px;
 	}
 
 	textarea {
-		height: 130px;
+		height: 100px;
+		width: 300px;
 		border: 1px solid #e3e3e3;
 		padding: 15px 20px;
 		resize: none;
@@ -83,8 +124,25 @@
 		border-radius: 2px;
 	}
 
-	.button-group {
-		display: flex;
-		justify-content: center;
+	@media (min-width: 768px) {
+		form {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.input-wrapper {
+			flex-direction: row;
+			gap: 32px;
+		}
+
+		.input-first {
+			gap: 0;
+		}
+
+		.button-group {
+			justify-content: end;
+			margin-top: 16px;
+		}
 	}
 </style>

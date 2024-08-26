@@ -281,13 +281,13 @@
 		padding: 20px;
 		max-width: 1200px;
 		margin: 0 auto;
-		margin-top: 30px;
+		margin-top: 60px;
 		/* border-bottom: 1px solid #e3e3e3; */
 	}
 
 	.two-column {
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
 		gap: 20px;
 	}
 
