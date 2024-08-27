@@ -42,7 +42,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding-left: 1em;
+		padding-left: 16px;
 		font-size: xx-large;
 		font-weight: 700;
 	}
@@ -54,7 +54,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		padding-right: 1em;
+		padding-right: 16px;
 	}
 
 	ul {
@@ -77,12 +77,12 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 0.5rem;
+		padding: 0 8px;
 		color: var(--color-text);
 		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: 12.8px;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 1.6px;
 		text-decoration: none;
 		transition: color 0.2s linear;
 	}

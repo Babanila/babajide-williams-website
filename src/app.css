@@ -8,8 +8,8 @@
 	--color-theme-1: #ff3e00;
 	--color-theme-2: #4075a6;
 	--color-text: #1d3557;
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
+	--column-width: 672px;
+	--column-margin-top: 64px;
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
@@ -48,12 +48,12 @@ a:hover {
 }
 
 h1 {
-	font-size: 2rem;
+	font-size: 32px;
 	text-align: center;
 }
 
 h2 {
-	font-size: 1rem;
+	font-size: 16px;
 }
 
 pre {
@@ -62,14 +62,14 @@ pre {
 	background-color: rgba(255, 255, 255, 0.45);
 	border-radius: 3px;
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
+	padding: 8px;
 	overflow-x: auto;
 	color: var(--color-text);
 }
 
 .text-column {
 	display: flex;
-	max-width: 48rem;
+	max-width: 768px;
 	flex: 0.6;
 	flex-direction: column;
 	justify-content: center;
@@ -88,7 +88,7 @@ button:focus:not(:focus-visible) {
 
 @media (min-width: 720px) {
 	h1 {
-		font-size: 2.4rem;
+		font-size: 38.4px;
 	}
 }
 
