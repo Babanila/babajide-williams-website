@@ -5,13 +5,54 @@
 	import instagram from '$lib/images/instagram.svg';
 	import linkedln from '$lib/images/linkedin.svg';
 	import profile_image from '$lib/images/profile-image.jpeg';
+	import imagePlaceholder from '$lib/images/svelte-welcome.png';
 	import Button from './Button.svelte';
 	import ContactForm from './ContactForm.svelte';
 	import Modal from './Modal.svelte';
 
+	type SocialConnectionType = {
+		name: string;
+		icon: string;
+	};
+
+	type SkillType = {
+		title: string;
+		description: string;
+		types: {
+			name: string;
+			details: string;
+		}[];
+	};
+
+	type ExperienceType = {
+		title: string;
+		company: string;
+		date: string;
+		description: string;
+	};
+
+	type EducationType = {
+		title: string;
+		institution: string;
+		date: string;
+		description: string;
+	};
+
+	type PortfolioItem = {
+		title: string;
+		date: string;
+		imageUrl: string;
+		gitUrl: string;
+	};
+
+	type ContactType = {
+		title: string;
+		description: string;
+	};
+
 	let showModal = false;
 
-	const home: Record<string, any> = {
+	const home: Record<string, string> = {
 		firstname: 'Babajide',
 		surname: 'Williams',
 		introMessage:
@@ -27,18 +68,18 @@
 		thread: 'https://www.threads.net/@babanila'
 	};
 
-	const infos = ['phone', 'email', 'address'];
+	const infos: string[] = ['phone', 'email', 'address'];
 
-	const socialConnections = [
+	const socialConnections: SocialConnectionType[] = [
 		{ name: 'github', icon: github },
 		{ name: 'linkedln', icon: linkedln },
 		{ name: 'facebook', icon: facebook },
 		{ name: 'instagram', icon: instagram }
 	];
 
-	const skills = {
+	const skills: SkillType = {
 		title: 'Skills',
-		intro:
+		description:
 			'I’m driven by the thrill of collaborating with passionate individuals to bring extraordinary software to life. Creating something exceptional together fuels my creativity and pushes the boundaries of what’s possible.',
 		types: [
 			{
@@ -63,7 +104,7 @@
 		]
 	};
 
-	const experiences = [
+	const experienceDetails: ExperienceType[] = [
 		{
 			title: 'Senior Frontend Developer',
 			company: 'HealthHero GmbH',
@@ -115,7 +156,7 @@
 		}
 	];
 
-	const educationDetails = [
+	const educationDetails: EducationType[] = [
 		{
 			title: 'Master',
 			institution: 'University of Applied Science Kiel',
@@ -130,11 +171,32 @@
 		}
 	];
 
-	const contactDetails = {
+	const contactDetails: ContactType = {
 		title: 'Contact',
-		intro:
+		description:
 			'Are you in need of a frontend development expert or working on something exciting? I’d love to help bring it to life! Feel free to drop me a message.'
 	};
+
+	const portfolioItems: PortfolioItem[] = [
+		{
+			title: 'Shop web app "Patty"',
+			date: 'April, 2017',
+			imageUrl: profile_image,
+			gitUrl: 'https://github.com/Babanila/fut-weather-app'
+		},
+		{
+			title: 'Corporate chat "eWesta"',
+			date: 'December, 2015',
+			imageUrl: imagePlaceholder,
+			gitUrl: ''
+		},
+		{
+			title: 'Blogger website "Te4h"',
+			date: 'April, 2014',
+			imageUrl: profile_image,
+			gitUrl: ''
+		}
+	];
 </script>
 
 <svelte:head>
@@ -142,7 +204,7 @@
 	<meta name="description" content="Babajide CV" />
 </svelte:head>
 
-<section id="Home" class="home-part">
+<section id="Home" class="home-section">
 	<div class="two-column">
 		<div class="column left">
 			<slot name="left">
@@ -202,9 +264,9 @@
 	</Modal>
 </section>
 
-<section id="Skills" class="skills-container">
+<section id="Skills" class="skills-section">
 	<h2 class="section-title">{skills.title}</h2>
-	<p class="skills-description">{skills.intro}</p>
+	<p class="skills-description">{skills.description}</p>
 
 	<div class="skills-grid">
 		{#each skills.types as { name, details }}
@@ -227,7 +289,7 @@
 			</p>
 		</div>
 		<div class="right-column">
-			{#each experiences as experience}
+			{#each experienceDetails as experience}
 				<div class="experience-item">
 					<h2 class="section-inner-title">
 						{experience.title} <span class="company">{experience.company}</span>
@@ -262,12 +324,33 @@
 	</div>
 </section>
 
+<section id="Portfolio" class="portfolio-section">
+	<h2 class="section-title">Portfolio</h2>
+	<div class="filter-menu">
+		<a href="#">All Project</a>
+		<a href="#">Frontend</a>
+		<a href="#">Backend</a>
+		<a href="#">Full Websites</a>
+	</div>
+	<div class="portfolio-grid">
+		{#each portfolioItems as item}
+			<a target="_blank" href={item.gitUrl} class="portfolio-anchor">
+				<div class="portfolio-item">
+					<img src={item.imageUrl} alt={item.title} />
+					<h3>{item.title}</h3>
+					<p>{item.date}</p>
+				</div>
+			</a>
+		{/each}
+	</div>
+</section>
+
 <section id="Contact" class="contact-section">
 	<div class="content-wrapper">
 		<div class="left-column">
 			<h2 class="section-title">{contactDetails.title}</h2>
 			<p>
-				{contactDetails.intro}
+				{contactDetails.description}
 			</p>
 		</div>
 		<div class="right-column">
@@ -277,7 +360,7 @@
 </section>
 
 <style>
-	.home-part {
+	.home-section {
 		padding: 20px;
 		max-width: 1200px;
 		margin: 0 auto;
@@ -363,7 +446,7 @@
 		margin-bottom: 8px;
 	}
 
-	.skills-container {
+	.skills-section {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -403,6 +486,7 @@
 	}
 
 	.contact-section,
+	.portfolio-section,
 	.education-section,
 	.experience-section {
 		padding: 40px 20px;
@@ -448,6 +532,70 @@
 		margin-top: 5px;
 	}
 
+	h1 {
+		font-size: 32px;
+		margin-bottom: 16px;
+	}
+
+	.filter-menu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.filter-menu a {
+		text-decoration: none;
+		color: #000;
+		font-weight: bold;
+	}
+
+	.filter-menu a:hover {
+		color: #3a86ff;
+	}
+
+	.portfolio-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 32px;
+	}
+
+	.portfolio-anchor {
+		text-decoration: none;
+		color: #1d3557;
+	}
+	.portfolio-anchor:hover {
+		text-decoration: underline;
+		color: #3a86ff;
+	}
+
+	.portfolio-item {
+		box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+		transition: transform 0.2s;
+	}
+
+	.portfolio-item img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.portfolio-item:hover {
+		transform: translateY(-5px);
+	}
+
+	.portfolio-item h3 {
+		margin: 16px;
+		font-size: 20px;
+	}
+
+	.portfolio-item p {
+		margin: 0 16px 16px;
+		color: #666;
+	}
+
 	/* Medium screens (tablets) */
 	@media (min-width: 768px) {
 		.two-column {
@@ -469,6 +617,14 @@
 		.content-wrapper {
 			flex-direction: row;
 			gap: 40px;
+		}
+
+		.filter-menu {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 16px;
+			margin-bottom: 32px;
 		}
 	}
 
