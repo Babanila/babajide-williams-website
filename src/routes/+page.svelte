@@ -1,11 +1,18 @@
 <script lang="ts">
 	import cv from '$lib/pdf/Babajide_Williams_CV.pdf';
+	import chat from '$lib/images/chat.svg';
 	import facebook from '$lib/images/facebook.svg';
 	import github from '$lib/images/github.svg';
 	import instagram from '$lib/images/instagram.svg';
 	import linkedln from '$lib/images/linkedin.svg';
+	import note from '$lib/images/note.svg';
+	import recipe from '$lib/images/recipe.svg';
+	import schedule from '$lib/images/schedule.svg';
+	import search from '$lib/images/search_icon.svg';
+	import video from '$lib/images/video.svg';
+	import vote from '$lib/images/voting-box.png';
+	import weather from '$lib/images/weather.svg';
 	import profile_image from '$lib/images/profile-image.jpeg';
-	import imagePlaceholder from '$lib/images/svelte-welcome.png';
 	import Button from './Button.svelte';
 	import ContactForm from './ContactForm.svelte';
 	import Modal from './Modal.svelte';
@@ -40,6 +47,7 @@
 
 	type PortfolioItem = {
 		title: string;
+		serviceType: string;
 		date: string;
 		imageUrl: string;
 		gitUrl: string;
@@ -179,22 +187,60 @@
 
 	const portfolioItems: PortfolioItem[] = [
 		{
-			title: 'Shop web app "Patty"',
-			date: 'April, 2017',
-			imageUrl: profile_image,
+			title: 'Recipe',
+			serviceType: 'backend',
+			date: 'Aug 21, 2024',
+			imageUrl: recipe,
+			gitUrl: 'https://github.com/Babanila/recipe'
+		},
+		{
+			title: 'Video App',
+			serviceType: 'full',
+			date: 'Jun 3, 2024',
+			imageUrl: video,
+			gitUrl: 'https://github.com/Babanila/vonage-video-app'
+		},
+		{
+			title: 'Note App',
+			serviceType: 'full',
+			date: 'Oct 4, 2023',
+			imageUrl: note,
+			gitUrl: 'https://github.com/Babanila/note-app'
+		},
+		{
+			title: 'Scheduling App',
+			serviceType: 'full',
+			date: 'Feb 16, 2023',
+			imageUrl: schedule,
+			gitUrl: 'https://github.com/Babanila/scheduling-app'
+		},
+		{
+			title: 'Search Service',
+			serviceType: 'backend',
+			date: 'Jun 16, 2020',
+			imageUrl: search,
+			gitUrl: 'https://github.com/Babanila/search-service'
+		},
+		{
+			title: 'Chat App',
+			serviceType: 'frontend',
+			date: 'Sep 22, 2019',
+			imageUrl: chat,
+			gitUrl: 'https://github.com/Babanila/chat-app'
+		},
+		{
+			title: 'Voting App',
+			serviceType: 'frontend',
+			date: 'Oct 21, 2019',
+			imageUrl: vote,
+			gitUrl: 'https://github.com/Babanila/voting-app'
+		},
+		{
+			title: 'Weather App',
+			serviceType: 'frontend',
+			date: 'Nov 15, 2019',
+			imageUrl: weather,
 			gitUrl: 'https://github.com/Babanila/fut-weather-app'
-		},
-		{
-			title: 'Corporate chat "eWesta"',
-			date: 'December, 2015',
-			imageUrl: imagePlaceholder,
-			gitUrl: ''
-		},
-		{
-			title: 'Blogger website "Te4h"',
-			date: 'April, 2014',
-			imageUrl: profile_image,
-			gitUrl: ''
 		}
 	];
 </script>
@@ -486,7 +532,6 @@
 	}
 
 	.contact-section,
-	.portfolio-section,
 	.education-section,
 	.experience-section {
 		padding: 40px 20px;
@@ -541,6 +586,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		gap: 8px;
+		margin-bottom: 32px;
 	}
 
 	.filter-menu a {
@@ -553,9 +600,17 @@
 		color: #3a86ff;
 	}
 
+	.portfolio-section {
+		padding: 40px 120px;
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+
 	.portfolio-grid {
+		max-width: 400px;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 		gap: 32px;
 	}
 
@@ -564,7 +619,6 @@
 		color: #1d3557;
 	}
 	.portfolio-anchor:hover {
-		text-decoration: underline;
 		color: #3a86ff;
 	}
 
@@ -620,11 +674,8 @@
 		}
 
 		.filter-menu {
-			display: flex;
 			flex-direction: row;
-			align-items: flex-start;
 			gap: 16px;
-			margin-bottom: 32px;
 		}
 	}
 
@@ -645,6 +696,13 @@
 
 		.content-wrapper {
 			gap: 60px;
+		}
+
+		.portfolio-grid {
+			max-width: 1200px;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			gap: 32px;
 		}
 	}
 </style>
