@@ -18,7 +18,7 @@
 	}
 
 	.primary {
-		background-color: #4384cd;
+		background-color: #3a86ff;
 	}
 	.primary:hover {
 		background-color: #1d3557;
@@ -36,6 +36,20 @@
 	}
 	.danger:hover {
 		background-color: #e61232;
+	}
+
+	.ghost {
+		background-color: #ffffff;
+		color: #000000;
+		font-weight: bold;
+	}
+	.ghost:hover {
+		color: #3a86ff;
+	}
+
+	.active {
+		color: #3a86ff;
+		text-decoration: underline;
 	}
 
 	.sm {

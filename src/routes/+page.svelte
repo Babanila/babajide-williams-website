@@ -59,6 +59,7 @@
 	};
 
 	let showModal = false;
+	let serviceTypeInput = '';
 
 	const home: Record<string, string> = {
 		firstname: 'Babajide',
@@ -243,6 +244,24 @@
 			gitUrl: 'https://github.com/Babanila/fut-weather-app'
 		}
 	];
+
+	function getFilteredPortfolio(portfolios: PortfolioItem[], stringToMatch: string) {
+		if (stringToMatch) {
+			return portfolios.filter((portfolio) => {
+				return (
+					portfolio.serviceType.toLowerCase().includes(stringToMatch.toLowerCase()) ||
+					portfolio.serviceType.includes(stringToMatch.toUpperCase())
+				);
+			});
+		} else {
+			return portfolios;
+		}
+	}
+
+	function filterButton(input: string) {
+		serviceTypeInput = input;
+		return null;
+	}
 </script>
 
 <svelte:head>
@@ -373,13 +392,21 @@
 <section id="Portfolio" class="portfolio-section">
 	<h2 class="section-title">Portfolio</h2>
 	<div class="filter-menu">
-		<a href="#">All Project</a>
-		<a href="#">Frontend</a>
-		<a href="#">Backend</a>
-		<a href="#">Full Websites</a>
+		<button class:active={serviceTypeInput === ''} on:click={() => filterButton('')}
+			>All Projects</button
+		>
+		<button class:active={serviceTypeInput === 'frontend'} on:click={() => filterButton('frontend')}
+			>Frontend</button
+		>
+		<button class:active={serviceTypeInput === 'backend'} on:click={() => filterButton('backend')}
+			>Backend</button
+		>
+		<button class:active={serviceTypeInput === 'full'} on:click={() => filterButton('full')}
+			>Full stack</button
+		>
 	</div>
 	<div class="portfolio-grid">
-		{#each portfolioItems as item}
+		{#each getFilteredPortfolio(portfolioItems, serviceTypeInput) as item}
 			<a target="_blank" href={item.gitUrl} class="portfolio-anchor">
 				<div class="portfolio-item">
 					<img src={item.imageUrl} alt={item.title} />
@@ -590,16 +617,6 @@
 		margin-bottom: 32px;
 	}
 
-	.filter-menu a {
-		text-decoration: none;
-		color: #000;
-		font-weight: bold;
-	}
-
-	.filter-menu a:hover {
-		color: #3a86ff;
-	}
-
 	.portfolio-section {
 		padding: 40px 120px;
 		display: flex;
@@ -633,14 +650,11 @@
 		align-items: center;
 		justify-content: center;
 		padding: 16px 0;
-
 	}
 
 	.portfolio-item img {
 		width: 100px;
 		height: 100px;
-		/* height: auto; */
-		/* display: block; */
 	}
 
 	.portfolio-item:hover {
@@ -655,6 +669,23 @@
 	.portfolio-item p {
 		margin: 0 16px 16px;
 		color: #666;
+	}
+
+	button {
+		background-color: #ffffff;
+		color: #000000;
+		font-weight: bold;
+		border: none;
+		cursor: pointer;
+	}
+
+	button:hover {
+		color: #3a86ff;
+	}
+
+	.active {
+		color: #3a86ff;
+		text-decoration: underline;
 	}
 
 	/* Medium screens (tablets) */
