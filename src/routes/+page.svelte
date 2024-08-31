@@ -628,12 +628,19 @@
 		overflow: hidden;
 		background: #fff;
 		transition: transform 0.2s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 16px 0;
+
 	}
 
 	.portfolio-item img {
-		width: 100%;
-		height: auto;
-		display: block;
+		width: 100px;
+		height: 100px;
+		/* height: auto; */
+		/* display: block; */
 	}
 
 	.portfolio-item:hover {
