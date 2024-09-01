@@ -126,7 +126,7 @@
 			company: 'EGEOS GmbH (North.io GmbH)',
 			date: 'Oct, 2020 — Sept, 2021',
 			description:
-				'Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, JavaScript, Nodejs, HTML and CSS3. The optimization of websites resulted in a 300% increase in speed.'
+				'Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, JavaScript, Nodejs, HTML and CSS3. The optimization of websites resulted in a 300% increase in speed. Leveraging the power of WebGL to render complex geospatial data in real-time, allowing for smooth and responsive user interactions, even with large datasets.'
 		},
 		{
 			title: 'Software Engineer',
@@ -618,10 +618,9 @@
 	}
 
 	.portfolio-section {
-		padding: 40px 120px;
+		padding: 40px 20px;
 		display: flex;
 		flex-direction: column;
-		margin: 0 auto;
 	}
 
 	.portfolio-grid {
@@ -715,6 +714,12 @@
 			flex-direction: row;
 			gap: 16px;
 		}
+
+		.portfolio-section {
+		padding: 40px 120px;
+		display: flex;
+		flex-direction: column;
+	}
 	}
 
 	/* Large screens (desktops) */
