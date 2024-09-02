@@ -65,7 +65,7 @@
 		firstname: 'Babajide',
 		surname: 'Williams',
 		introMessage:
-			'I’m a solution-driven software engineer with over 10 years of experience in the IT world, providing a permanent solution to day-to-day challenges that gives the company a competitive edge and producing outstanding results for clients. My experience spans multiple aspects of the design and development process, with a primary focus on creating intuitive, accessible, and user-centered products. I’ve worked closely with designers to translate wireframes and prototypes into interactive, responsive interfaces, ensuring a smooth and engaging user journey across various devices. I concentrate on optimizing user flow and minimizing friction by simplifying navigation, enhancing load times, and ensuring consistent visual and interactive elements',
+			'I’m a solution-driven software engineer with over 10 years of experience in the IT world, providing a permanent solution to day-to-day challenges that gives the company a competitive edge and producing outstanding results for clients. My experience spans across multiple aspects of design and development process, with a primary focus on creating intuitive, accessible, and user-centered products. I’ve worked closely with designers to translate wireframes and prototypes into interactive, responsive interfaces, ensuring a smooth and engaging user journey across various devices. I concentrate on optimizing user flow and minimizing friction by simplifying navigation, enhancing load times, and ensuring consistent visual and interactive elements',
 		email: 'babanila@yahoo.com',
 		address: 'Berlin, Germany',
 		phone: '+49 176 301 720 22',
@@ -94,12 +94,12 @@
 			{
 				name: 'Web Development',
 				details:
-					'Javascript, Coffeescript, Python, Node.js, Nest.js, SQL, MongoDB, PostgreSQL, WebStorm.'
+					'Javascript, Coffeescript, Python, Node.js, Nest.js, SQL, MongoDB, PostgreSQL'
 			},
 			{
 				name: 'Frontend Development',
 				details:
-					'HTML, CSS, LESS, SASS, SCSS, Tailwind, Bootstrap, React, Next.js, Gatsby, Hugo.js, Foundation, Angular.js.'
+					'HTML5, CSS3, LESS, SASS, SCSS, Tailwind, Bootstrap, React, Next.js, Gatsby, Hugo.js, Foundation, Angular.js.'
 			},
 			{
 				name: 'UI/UX Design',
@@ -120,23 +120,23 @@
 			date: 'Sept, 2021 — Present',
 			description: `Creating advanced software solutions and web applications using React, TypeScript, JavaScript, Node.js, HTML5, CSS3/SASS/LESS, Cypress, Jest, and Storybook, including developing a UI components library. 
 				By enhancing user accessibility on websites, I significantly improved the user experience. 
-				My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%.
 				Developed the Long-Covid-App and the Questionnaire Rule Engine tool.
 				Implemented test-driven development (TDD) practices to guide the development process and ensure robust, maintainable code.
 				Utilized React Testing Library to perform component-level testing, creating and executing test cases that focus on user interactions, rendering logic, and component state to ensure individual React components function as expected in isolation.
-				Integrated Cypress tests into the continuous integration (CI) pipeline, ensuring that component tests run automatically on every commit, helping to catch regressions early in the development process.`
+				Integrated Cypress tests into the continuous integration (CI) pipeline, ensuring that component tests run automatically on every commit, helping to catch regressions early in the development process. 
+				My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%.`
 		},
 		{
 			title: 'Frontend Developer',
-			company: 'EGEOS GmbH (North.io GmbH)',
+			company: 'North.io GmbH (EGEOS GmbH)',
 			date: 'Oct, 2020 — Sept, 2021',
 			description: `Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, JavaScript, Nodejs, HTML5, CSS3 and Tailwind. 
 				Transforming design assets from Photoshop, Figma, and wireframes into fully responsive, pixel-perfect, functional, and mobile-friendly web pages. 
 				Emphasized testing components from the user’s perspective by simulating real-world scenarios, such as clicking buttons, filling out forms, and navigating through UI elements. 
 				Integrating RESTful APIs and collaborating with backend systems.
-				Led the migration of the project development tool from Webpack to Vite, enhancing development speed and improving build performance.
 				Leveraging the power of WebGL to render complex geospatial data in real-time, allowing for smooth and responsive user interactions, even with large datasets. 
 				Optimized the performance and usability of the diagram generation process, ensuring that large and complex projects could be visualized efficiently without compromising on detail or clarity. 
+				Led the migration of the project development tool from Webpack to Vite, enhancing development speed and improving build performance.
 				The optimization of websites resulted in a 300% increase in speed.`
 		},
 		{
