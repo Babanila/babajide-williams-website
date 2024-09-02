@@ -108,7 +108,7 @@
 			},
 			{
 				name: 'Testing & CI/CD',
-				details: 'Storybook, Cypress, Jest, Docker, GitHub-Actions, CircleCI, Jenkins.'
+				details: 'Storybook, Cypress, Jest, Mocha, Docker, GitHub-Actions, CircleCI, Jenkins.'
 			}
 		]
 	};
@@ -118,50 +118,68 @@
 			title: 'Senior Frontend Developer',
 			company: 'HealthHero GmbH',
 			date: 'Sept, 2021 — Present',
-			description:
-				'Creating advanced software solutions and web applications using React, TypeScript, JavaScript, Node.js, HTML, CSS3, Cypress, Jest, and Storybook, including developing a UI components library. By enhancing user accessibility on websites, I significantly improved the user experience. My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%. Additionally, I developed the Long-Covid-App and the Questionnaire Rule Engine tool.'
+			description: `Creating advanced software solutions and web applications using React, TypeScript, JavaScript, Node.js, HTML5, CSS3/SASS/LESS, Cypress, Jest, and Storybook, including developing a UI components library. 
+				By enhancing user accessibility on websites, I significantly improved the user experience. 
+				My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%.
+				Developed the Long-Covid-App and the Questionnaire Rule Engine tool.
+				Implemented test-driven development (TDD) practices to guide the development process and ensure robust, maintainable code.
+				Utilized React Testing Library to perform component-level testing, creating and executing test cases that focus on user interactions, rendering logic, and component state to ensure individual React components function as expected in isolation.
+				Integrated Cypress tests into the continuous integration (CI) pipeline, ensuring that component tests run automatically on every commit, helping to catch regressions early in the development process.`
 		},
 		{
 			title: 'Frontend Developer',
 			company: 'EGEOS GmbH (North.io GmbH)',
 			date: 'Oct, 2020 — Sept, 2021',
-			description:
-				'Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, JavaScript, Nodejs, HTML and CSS3. The optimization of websites resulted in a 300% increase in speed. Leveraging the power of WebGL to render complex geospatial data in real-time, allowing for smooth and responsive user interactions, even with large datasets.'
+			description: `Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, JavaScript, Nodejs, HTML5, CSS3 and Tailwind. 
+				Transforming design assets from Photoshop, Figma, and wireframes into fully responsive, pixel-perfect, functional, and mobile-friendly web pages. 
+				Emphasized testing components from the user’s perspective by simulating real-world scenarios, such as clicking buttons, filling out forms, and navigating through UI elements. 
+				Integrating RESTful APIs and collaborating with backend systems.
+				Led the migration of the project development tool from Webpack to Vite, enhancing development speed and improving build performance.
+				Leveraging the power of WebGL to render complex geospatial data in real-time, allowing for smooth and responsive user interactions, even with large datasets. 
+				Optimized the performance and usability of the diagram generation process, ensuring that large and complex projects could be visualized efficiently without compromising on detail or clarity. 
+				The optimization of websites resulted in a 300% increase in speed.`
 		},
 		{
 			title: 'Software Engineer',
 			company: 'Daizu GmbH',
 			date: 'June, 2019 — June, 2020',
-			description:
-				'Developed questionnaire app, e-commerce, CRM and blog-post website using using technologies such as React, Gatsby, GraphQL, CMS(Sanity), JavaScript,HTML, style-components and pure CSS. Refactored codebase to achieve a 30% reduction in bundle size.'
+			description: `Developed questionnaire app, e-commerce, CRM and blog-post website using using technologies such as React, Gatsby, GraphQL, CMS(Sanity), JavaScript,HTML, style-components and pure CSS. 
+				Converting design assets from Figma and wireframes into fully responsive, functional, and mobile-optimized websites. 
+				Developed and maintained unit tests to ensure the accuracy and reliability of individual components and functions within the application.
+				Implemented advanced techniques such as code splitting, tree shaking, and dynamic imports to minimize unnecessary code in the final bundle.  
+				Refactored codebase to achieve a 30% reduction in bundle size.`
 		},
 		{
 			title: 'Software Engineer',
 			company: 'Commercetools GmbH',
 			date: 'June, 2018 — June, 2019',
-			description:
-				'Developed innovative API solutions using Node.js, CoffeeScript, REST, and GraphQL to create various modules that support modern microservice-based architecture for clients, such as Category Export and Resource Deleter. Additionally, I built full websites and individual web pages for various clients and wrote unit, integration and end-to-end tests for APIs to ensure functionality and reliability.'
+			description: `Developed innovative API solutions using Node.js, CoffeeScript, REST, and GraphQL to create various modules that support modern microservice-based architecture for clients, such as Category Export and Resource Deleter. 
+				Built full websites and individual web pages for various clients.
+				Utilized testing frameworks such as Jest, Mocha to write automated unit tests, achieving high code coverage and early detection of defects. 
+				Performed integration tests to validate the interactions between different modules and services, ensuring smooth communication and consistent data flow throughout the system. 
+				Designed and executed end-to-end (E2E) tests to verify the full functionality of web applications, covering everything from the user interface to the backend systems.`
 		},
 		{
 			title: 'Software Developer',
 			company: 'Bliss Energy Nig. Ltd.',
 			date: 'May, 2015 — May, 2018',
-			description:
-				"I developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS. I played a key role in setting up the network that enhanced the company's development and growth. Additionally, I initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them."
+			description: `Developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS. 
+				Played a key role in setting up the network that enhanced the company's development and growth. 
+				Initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them.`
 		},
 		{
 			title: 'System Administrator',
 			company: 'Emirates Flight Catering',
 			date: 'May, 2012 — May, 2015',
-			description:
-				'I was responsible for setting up and maintaining Windows Server 2012, managing and configuring routers and switches during network setup, and overseeing user account management. Additionally, I handled the installation, updating, and maintenance of software on office equipment, including computer systems, routers, and switches.'
+			description: `I was responsible for setting up and maintaining Windows Server 2012, managing and configuring routers and switches during network setup, and overseeing user account management.
+				Handled the installation, updating, and maintenance of software on office equipment, including computer systems, routers, and switches.`
 		},
 		{
 			title: 'Network Administrator',
 			company: 'Yemshba Telephone Network',
 			date: 'March, 2010 — Sept, 2012',
-			description:
-				'I was responsible for setting up and maintaining Windows Server 2008, managing user accounts, and overseeing the installation, updating, and maintenance of software on company systems. Additionally, I handled the installation and upkeep of office equipment, including computer systems, routers, and switches.'
+			description: `I was responsible for setting up and maintaining Windows Server 2008, managing user accounts, and overseeing the installation, updating, and maintenance of software on company systems.
+				Handled the installation and upkeep of office equipment, including computer systems, routers, and switches.`
 		}
 	];
 
@@ -716,10 +734,10 @@
 		}
 
 		.portfolio-section {
-		padding: 40px 120px;
-		display: flex;
-		flex-direction: column;
-	}
+			padding: 40px 120px;
+			display: flex;
+			flex-direction: column;
+		}
 	}
 
 	/* Large screens (desktops) */
