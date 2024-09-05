@@ -20,15 +20,17 @@
 			},
 			body: json
 		});
+
 		const result = await response.json();
 		if (result.success) {
 			console.log(result);
 			status = result.message || 'Success';
+			data.target.reset();
 		}
 	};
 </script>
 
-<div>{status}</div>
+<div class="message-info">{status}</div>
 
 <section class="contact-form">
 	<div>
@@ -60,6 +62,10 @@
 </section>
 
 <style>
+	.message-info {
+		margin-bottom: 16px;
+	}
+
 	.form-inner-wrapper {
 		display: flex;
 		justify-content: center;
