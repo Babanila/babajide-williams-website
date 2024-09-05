@@ -6,11 +6,7 @@
 	export let description: string = '';
 	export let submitWord: string = '';
 
-	const handleSubmit = async (
-		/** @type {{ currentTarget: HTMLFormElement | undefined; }} */ data:
-			| { currentTarget: HTMLFormElement | undefined }
-			| undefined
-	) => {
+	const handleSubmit = async (data: any) => {
 		status = 'Submitting...';
 		const formData = new FormData(data?.currentTarget);
 		const object = Object.fromEntries(formData);
@@ -35,7 +31,7 @@
 <div>{status}</div>
 
 <section class="contact-form">
-	<div class="part-one">
+	<div>
 		{#if title}
 			<div class="contact-title"><h1>{title}</h1></div>
 		{/if}
@@ -44,31 +40,27 @@
 		{/if}
 	</div>
 
-	<div class="part-two">
+	<div>
 		<form on:submit|preventDefault={handleSubmit}>
-			<input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY111} />
-			<div class="input-wrapper">
-				<div class="input-first">
-					<input type="text" name="name" placeholder="Name" required />
-					<input type="email" name="email" placeholder="Email" required />
+			<div class="form-inner-wrapper">
+				<input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY} />
+				<div class="input-wrapper">
+					<div class="input-first">
+						<input type="text" name="name" placeholder="Name" required />
+						<input type="email" name="email" placeholder="Email" required />
+					</div>
+					<textarea name="message" placeholder="Message" required rows="3"></textarea>
 				</div>
-				<textarea name="message" placeholder="Message" required rows="3"></textarea>
+			</div>
+			<div class="button-group">
+				<Button class="primary sm" on:click={(e) => handleSubmit(e)}>{submitWord}</Button>
 			</div>
 		</form>
-		<div class="button-group">
-			<Button class="primary sm" on:click={() => handleSubmit}>
-				{#if submitWord}
-					{submitWord}
-				{:else}
-					Send Message
-				{/if}
-			</Button>
-		</div>
 	</div>
 </section>
 
 <style>
-	form {
+	.form-inner-wrapper {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -125,7 +117,7 @@
 	}
 
 	@media (min-width: 768px) {
-		form {
+		.form-inner-wrapper {
 			display: flex;
 			justify-content: center;
 			align-items: center;

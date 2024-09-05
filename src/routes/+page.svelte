@@ -93,13 +93,12 @@
 		types: [
 			{
 				name: 'Web Development',
-				details:
-					'Javascript, Coffeescript, Python, Node.js, Nest.js, SQL, MongoDB, PostgreSQL'
+				details: 'Javascript, Coffeescript, Python, Node.js, Nest.js, SQL, MongoDB, PostgreSQL.'
 			},
 			{
 				name: 'Frontend Development',
 				details:
-					'HTML5, CSS3, LESS, SASS, SCSS, Tailwind, Bootstrap, React, Next.js, Gatsby, Hugo.js, Foundation, Angular.js.'
+					'HTML5, CSS3, LESS, SASS, SCSS, Tailwind, Bootstrap, React, Nextjs, Svelte, Gatsby, Hugojs.'
 			},
 			{
 				name: 'UI/UX Design',
@@ -198,12 +197,6 @@
 		}
 	];
 
-	const contactDetails: ContactType = {
-		title: 'Contact',
-		description:
-			'Are you in need of a frontend development expert or working on something exciting? I’d love to help bring it to life! Feel free to drop me a message.'
-	};
-
 	const portfolioItems: PortfolioItem[] = [
 		{
 			title: 'Recipe',
@@ -262,6 +255,12 @@
 			gitUrl: 'https://github.com/Babanila/fut-weather-app'
 		}
 	];
+
+	const contactDetails: ContactType = {
+		title: 'Contact',
+		description:
+			'Are you in need of a frontend development expert or working on something exciting? I’d love to help bring it to life! Feel free to drop me a message.'
+	};
 
 	function getFilteredPortfolio(portfolios: PortfolioItem[], stringToMatch: string) {
 		if (stringToMatch) {
@@ -340,8 +339,7 @@
 	<Modal bind:showModal>
 		<ContactForm
 			title="Contact Form"
-			description="Are you in need of a frontend development expert or working on something exciting? I’d love
-				to help bring it to life! Feel free to drop me a message."
+			description={contactDetails.description}
 			submitWord="Submit"
 		/>
 	</Modal>
@@ -445,7 +443,7 @@
 			</p>
 		</div>
 		<div class="right-column">
-			<ContactForm />
+			<ContactForm submitWord="Send Message" />
 		</div>
 	</div>
 </section>
