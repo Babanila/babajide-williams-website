@@ -1,5 +1,5 @@
 <script lang="ts">
-	import cv from '$lib/pdf/Babajide_Williams_CV.pdf';
+	import cv from '$lib/pdf/Babajide_S_Williams_CV.pdf';
 	import chat from '$lib/images/chat.svg';
 	import facebook from '$lib/images/facebook.svg';
 	import github from '$lib/images/github.svg';
