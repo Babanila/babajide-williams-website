@@ -1,5 +1,5 @@
 <script lang="ts">
-	import cv from '$lib/pdf/Babajide_S_Williams_CV.pdf';
+	import cv from '$lib/pdf/Babajide_Williams_CV.pdf';
 	import chat from '$lib/images/chat.svg';
 	import facebook from '$lib/images/facebook.svg';
 	import github from '$lib/images/github.svg';
@@ -44,6 +44,11 @@
 		institution: string;
 		date: string;
 		description: string;
+	};
+
+	type ProjectType = {
+		title: string;
+		descriptions: string[];
 	};
 
 	type PortfolioItem = {
@@ -120,13 +125,13 @@
 			location: 'Berlin, Germany',
 			date: 'Sept, 2021 — Present',
 			descriptions: [
-				'•	Creating advanced software solutions and web applications using React, Nextjs, TypeScript, JavaScript, Nodejs, HTML5, CSS3/SASS/LESS, Cypress, Jest, and Storybook, including developing a UI components library.',
-				'•	By enhancing user accessibility on websites, I significantly improved the user experience.',
-				'• Implemented test-driven development (TDD) practices to guide the development process and ensure robust, maintainable code.',
-				'•	Utilized React Testing Library to perform component-level testing, creating and executing test cases that focus on user interactions, rendering logic, and component state to ensure individual React components function as expected in isolation.',
-				'•	Integrated Cypress tests into the continuous integration (CI) pipeline, ensuring that component tests run automatically on every commit, helping to catch regressions early in the development process.',
-				'•	Developed the Long-Covid-App and the Questionnaire Rule Engine tool.',
-				'•	My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%.'
+				'Creating advanced software solutions and web applications using React, Nextjs, TypeScript, JavaScript, Nodejs, HTML5, CSS3/SASS/LESS, Cypress, Jest, and Storybook, including developing a UI components library.',
+				'By enhancing user accessibility on websites, I significantly improved the user experience.',
+				'Implemented test-driven development (TDD) practices to guide the development process and ensure robust, maintainable code.',
+				'Utilized React Testing Library to perform component-level testing, creating and executing test cases that focus on user interactions, rendering logic, and component state to ensure individual React components function as expected in isolation.',
+				'Integrated Cypress tests into the continuous integration (CI) pipeline, ensuring that component tests run automatically on every commit, helping to catch regressions early in the development process.',
+				'Developed the Long-Covid-App and the Questionnaire Rule Engine tool.',
+				'My optimization efforts resulted in a 200% increase in website speed, a 10% reduction in bundle size, and a reduction in hacker attacks from 2.0% to 0.02%.'
 			]
 		},
 		{
@@ -135,15 +140,15 @@
 			location: 'Kiel, Germany',
 			date: 'Oct, 2020 — Sept, 2021',
 			descriptions: [
-				'•	Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, TypeScript, JavaScript, Nodejs, HTML5, Tailwind, CSS3/SASS/LESS, Cypress, Jest, and Storybook, including developing a UI components library.',
-				'•	Transforming design assets from Photoshop, Figma, and wireframes into fully responsive, pixel-perfect, functional, and mobile-friendly web pages.',
-				'•	Contributed to the development and maintenance of AMUCAD’s AI-driven Decision Support System (DSS) website for marine munitions. The system processes extensive data from various sources, such as scientific research, munitions management, and legal frameworks, to assist maritime and environmental administrators in making well-informed decisions.',
-				'•	Designed and implemented a user interface that enables stakeholders to easily access and interpret complex underwater survey data, enhancing the usability and impact of the Daimon project.',
-				'•	Leveraging the power of WebGL to render complex geospatial data in real-time, allowing for smooth and responsive user interactions, even with large datasets.',
-				'•	Led the frontend development of a web-based tool that integrates complex geospatial data, providing users with an intuitive interface to analyze and visualize environmental and infrastructure data.',
-				'•	Optimized the performance and usability of the diagram generation process, ensuring that large and complex projects could be visualized efficiently without compromising on detail or clarity.',
-				'•	Led the migration of the project development tool from Webpack to Vite, enhancing development speed and improving build performance.',
-				'•	The optimization of websites resulted in a 300% increase in speed.'
+				'Created software solutions and different web applications for clients using frameworks and technologies like React, Gatsby, Hugo, TypeScript, JavaScript, Nodejs, HTML5, Tailwind, CSS3/SASS/LESS, Cypress, Jest, and Storybook, including developing a UI components library.',
+				'Transforming design assets from Photoshop, Figma, and wireframes into fully responsive, pixel-perfect, functional, and mobile-friendly web pages.',
+				'Contributed to the development and maintenance of AMUCAD’s AI-driven Decision Support System (DSS) website for marine munitions. The system processes extensive data from various sources, such as scientific research, munitions management, and legal frameworks, to assist maritime and environmental administrators in making well-informed decisions.',
+				'Designed and implemented a user interface that enables stakeholders to easily access and interpret complex underwater survey data, enhancing the usability and impact of the Daimon project.',
+				'Leveraging the power of WebGL to render complex geospatial data in real-time, allowing for smooth and responsive user interactions, even with large datasets.',
+				'Led the frontend development of a web-based tool that integrates complex geospatial data, providing users with an intuitive interface to analyze and visualize environmental and infrastructure data.',
+				'Optimized the performance and usability of the diagram generation process, ensuring that large and complex projects could be visualized efficiently without compromising on detail or clarity.',
+				'Led the migration of the project development tool from Webpack to Vite, enhancing development speed and improving build performance.',
+				'The optimization of websites resulted in a 300% increase in speed.'
 			]
 		},
 		{
@@ -152,13 +157,13 @@
 			location: 'Berlin, Germany',
 			date: 'June, 2019 — June, 2020',
 			descriptions: [
-				'•	Developed questionnaire app, e-commerce, CRM and blog-post website using using technologies such as React, Gatsby, GraphQL, CMS(Sanity), JavaScript, HTML, style-components and pure CSS.',
-				'•	Converting design assets from Figma and wireframes into fully responsive, functional, and mobile-optimized websites.',
-				'•	Integrating RESTful APIs and collaborating with backend systems.',
-				'•	Emphasized testing components from the user’s perspective by simulating real-world scenarios, such as clicking buttons, filling out forms, and navigating through UI elements.',
-				'•	Developed and maintained unit tests to ensure the accuracy and reliability of individual components and functions within the application.',
-				'•	Implemented advanced techniques such as code splitting, tree shaking, and dynamic imports to minimize unnecessary code in the final bundle.',
-				'•	Refactored codebase to achieve a 30% reduction in bundle size.'
+				'Developed questionnaire app, e-commerce, CRM and blog-post website using using technologies such as React, Gatsby, GraphQL, CMS(Sanity), JavaScript, HTML, style-components and pure CSS.',
+				'Converting design assets from Figma and wireframes into fully responsive, functional, and mobile-optimized websites.',
+				'Integrating RESTful APIs and collaborating with backend systems.',
+				'Emphasized testing components from the user’s perspective by simulating real-world scenarios, such as clicking buttons, filling out forms, and navigating through UI elements.',
+				'Developed and maintained unit tests to ensure the accuracy and reliability of individual components and functions within the application.',
+				'Implemented advanced techniques such as code splitting, tree shaking, and dynamic imports to minimize unnecessary code in the final bundle.',
+				'Refactored codebase to achieve a 30% reduction in bundle size.'
 			]
 		},
 		{
@@ -167,11 +172,11 @@
 			location: 'Berlin, Germany',
 			date: 'June, 2018 — June, 2019',
 			descriptions: [
-				'•	Developed innovative API solutions using Node.js, CoffeeScript, REST, and GraphQL to create various modules that support modern microservice-based architecture for clients, such as Category Export and Resource Deleter.',
-				'•	Built full websites and individual web pages for various clients.',
-				'•	Utilized testing frameworks such as Jest, Mocha to write automated unit tests, achieving high code coverage and early detection of defects.',
-				'•	Performed integration tests to validate the interactions between different modules and services, ensuring smooth communication and consistent data flow throughout the system.',
-				'•	Designed and executed end-to-end (E2E) tests to verify the full functionality of web applications, covering everything from the user interface to the backend systems.'
+				'Developed innovative API solutions using Node.js, CoffeeScript, REST, and GraphQL to create various modules that support modern microservice-based architecture for clients, such as Category Export and Resource Deleter.',
+				'Built full websites and individual web pages for various clients.',
+				'Utilized testing frameworks such as Jest, Mocha to write automated unit tests, achieving high code coverage and early detection of defects.',
+				'Performed integration tests to validate the interactions between different modules and services, ensuring smooth communication and consistent data flow throughout the system.',
+				'Designed and executed end-to-end (E2E) tests to verify the full functionality of web applications, covering everything from the user interface to the backend systems.'
 			]
 		},
 		{
@@ -180,9 +185,9 @@
 			location: 'Lagos, Nigeria',
 			date: 'May, 2015 — May, 2018',
 			descriptions: [
-				'•	Developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS.',
-				"•	Played a key role in setting up the network that enhanced the company's development and growth.",
-				"•	Initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them."
+				'Developed innovative software solutions using pure JavaScript, HTML, and CSS, and created various websites utilizing vanilla JavaScript, jQuery, React, HTML, and CSS.',
+				"Played a key role in setting up the network that enhanced the company's development and growth.",
+				"Initiated market research studies to identify demand for the company's products or services and captured business development opportunities to capitalize on them."
 			]
 		},
 		{
@@ -191,8 +196,8 @@
 			location: 'Dubai, United Arab Emirates',
 			date: 'May, 2012 — May, 2015',
 			descriptions: [
-				'•	I was responsible for setting up and maintaining Windows Server 2012, managing and configuring routers and switches during network setup, and overseeing user account management.',
-				'•	Handled the installation, updating, and maintenance of software on office equipment, including computer systems, routers, and switches.'
+				'I was responsible for setting up and maintaining Windows Server 2012, managing and configuring routers and switches during network setup, and overseeing user account management.',
+				'Handled the installation, updating, and maintenance of software on office equipment, including computer systems, routers, and switches.'
 			]
 		},
 		{
@@ -201,8 +206,8 @@
 			location: 'Ogun, Nigeria',
 			date: 'March, 2010 — Sept, 2012',
 			descriptions: [
-				'•	I was responsible for setting up and maintaining Windows Server 2008, managing user accounts, and overseeing the installation, updating, and maintenance of software on company systems.',
-				'•	Handled the installation and upkeep of office equipment, including computer systems, routers, and switches.'
+				'I was responsible for setting up and maintaining Windows Server 2008, managing user accounts, and overseeing the installation, updating, and maintenance of software on company systems.',
+				'Handled the installation and upkeep of office equipment, including computer systems, routers, and switches.'
 			]
 		}
 	];
@@ -219,6 +224,31 @@
 			institution: 'Federal University of Technology Akure',
 			date: 'Oct, 2005 — Nov, 2010',
 			description: 'BTech (Hons) in Computer Science.'
+		}
+	];
+
+	const projectDetails: ProjectType[] = [
+		{
+			title: 'HealthHero GmbH',
+			descriptions: [
+				`Led the frontend development of Fernarzt's Long COVID support platform, designed to provide comprehensive telemedicine services to individuals recovering from Long COVID, particularly those insured under various health plans. (https://www.fernarzt.com/long-covid/fuer-versicherte).`,
+				`Led the development of the Fernarzt Rule Engine, a flexible rule-based system designed to automate decision-making processes for medical assessments. By implementing a configurable rule engine and a clean, modular architecture, I simplified the creation of new rules and ensured that updates could be made easily without disrupting the system, providing a scalable solution for handling complex medical evaluation protocols.`
+			]
+		},
+		{
+			title: 'North.io GmbH',
+			descriptions: [
+				`Contributed to the development of Daimon and Daimon2 Project, an innovative initiative focused on maritime safety and environmental protection, by enhancing the monitoring and management of underwater munitions through a web-based application. These tools provided users with intuitive access to critical data, improving the efficiency of munitions tracking and environmental protection efforts.(http://www.daimonproject.com, https://www.amucad.org/daimon)`,
+				`Contributed to ErPad project which utilizes AI technologies like neural networks and GPU-based calculations for the automated extraction and connection of historical documents, making it easier to analyze large amounts of archival data based on geographic, temporal, and thematic relationships. (https://www.amucad.org/erpad)`,
+				`Contributed to the frontend development of a geospatial data analysis tool for North.io, providing users with an intuitive interface to visualize environmental and infrastructure data, and contributed to AMUCAD’s AI-powered Decision Support System (DSS) for marine munitions, facilitating data-driven decision-making for maritime safety and environmental protection.(https://www.amucad.org)`
+			]
+		},
+		{
+			title: 'Daizu GmbH',
+			descriptions: [
+				`Spearheaded the redesign and enhancement of the Sleep.ink e-commerce platform, focused on promoting and selling natural sleep aids and wellness products. (https://sleep.ink)`,
+				`Led the development of a comprehensive questionnaire app for BesserSchlafen, aimed at improving customer engagement by helping users identify personalized sleep solutions based on their individual needs and habits. (https://besserschlafen.de)`
+			]
 		}
 	];
 
@@ -404,7 +434,7 @@
 					<p class="date">{experience.date}</p>
 					<p class="date"><b>Responsibilities</b></p>
 					{#each experience.descriptions as description}
-						<p class="description">{description}</p>
+						<p class="description">• {description}</p>
 					{/each}
 				</div>
 			{/each}
@@ -428,6 +458,30 @@
 					<p class="education-institution">{edu.institution}</p>
 					<p class="description">{edu.description}</p>
 					<p class="date">{edu.date}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section id="Project" class="project-section">
+	<div class="content-wrapper">
+		<div class="left-column">
+			<h2 class="section-title">Projects</h2>
+			<p>
+				These projects showcase my ability to build scalable, 
+				user-centered solutions across different industries, 
+				from healthcare to environmental protection.
+			</p>
+		</div>
+		<div class="right-column">
+			{#each projectDetails as project}
+				<div class="experience-item">
+					<h2 class="section-inner-title">{project.title}</h2>
+
+					{#each project.descriptions as description}
+						<p class="description">• {description}</p>
+					{/each}
 				</div>
 			{/each}
 		</div>
@@ -604,6 +658,7 @@
 	}
 
 	.contact-section,
+	.project-section,
 	.education-section,
 	.experience-section {
 		padding: 40px 20px;
