@@ -73,6 +73,7 @@
 		introMessage:
 			'I’m a solution-driven software engineer with over 10 years of experience in the IT world, providing a permanent solution to day-to-day challenges that gives the company a competitive edge and producing outstanding results for clients. My experience spans across multiple aspects of design and development process, with a primary focus on creating intuitive, accessible, and user-centered products. I’ve worked closely with designers to translate wireframes and prototypes into interactive, responsive interfaces, ensuring a smooth and engaging user journey across various devices. I concentrate on optimizing user flow and minimizing friction by simplifying navigation, enhancing load times, and ensuring consistent visual and interactive elements',
 		email: 'babanila@yahoo.com',
+		secondEmail: 'babanila2@gmail.com',
 		address: 'Berlin, Germany',
 		phone: '+49 176 301 720 22',
 		skype: 'al.babanila',
@@ -83,7 +84,7 @@
 		thread: 'https://www.threads.net/@babanila'
 	};
 
-	const infos: string[] = ['phone', 'email', 'address'];
+	const infos: string[] = ['phone', 'email', 'secondEmail', 'address'];
 
 	const socialConnections: SocialConnectionType[] = [
 		{ name: 'github', icon: github },
@@ -469,9 +470,8 @@
 		<div class="left-column">
 			<h2 class="section-title">Projects</h2>
 			<p>
-				These projects showcase my ability to build scalable, 
-				user-centered solutions across different industries, 
-				from healthcare to environmental protection.
+				These projects showcase my ability to build scalable, user-centered solutions across
+				different industries, from healthcare to environmental protection.
 			</p>
 		</div>
 		<div class="right-column">
