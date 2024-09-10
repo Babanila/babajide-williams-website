@@ -354,7 +354,7 @@
 
 					<div class="my-info">
 						{#each infos as info}
-							<p>
+							<p class="t-shape">
 								<span class="span-title">{info}</span>
 								<span>{home[`${info}`]}</span>
 							</p>
@@ -582,6 +582,13 @@
 		display: flex;
 		align-items: center;
 		gap: 32px;
+	}
+
+	.t-shape {
+		width: 100%;
+		max-width: 300px;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.span-title {
